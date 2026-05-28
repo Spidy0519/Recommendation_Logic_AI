@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Job Recommender</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  background:#f5f5f5;
+  max-width:800px;
+  margin:40px auto;
+  padding:20px;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  font-size:16px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  outline:none;
+}
+
+#status{
+  margin-top:12px;
+  color:#777;
+  font-size:14px;
+}
+
+.job{
+  background:white;
+  border-radius:10px;
+  padding:15px;
+  margin-top:12px;
+  border:1px solid #ddd;
+}
+
+.job-name{
+  font-size:18px;
+  font-weight:bold;
+}
+
+.skills{
+  color:#666;
+  margin-top:6px;
+  font-size:14px;
+}
+
+.score{
+  margin-top:6px;
+  color:green;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>🎯 AI Job Recommendation System</h2>
+
+<input 
+type="text" 
+id="inp"
+placeholder="Type skills... Python, SQL, React"
+/>
+
+<div id="status"></div>
+<div id="results"></div>
+
+<script>
+
+const input = document.getElementById('inp');
+
+input.addEventListener('input', async () => {
+
+  const raw = input.value.trim();
+
+  if(raw.length < 2){
+    document.getElementById('results').innerHTML = '';
+    document.getElementById('status').innerHTML = '';
+    return;
+  }
+
+  document.getElementById('status').innerHTML = 'Searching...';
+
+  try{
+
+    const res = await fetch('http://localhost:5000/recommend', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+        skills: raw.replace(/,/g,' ')
+      })
+    });
+
+    const jobs = await res.json();
+
+    document.getElementById('results').innerHTML = '';
+
+    document.getElementById('status').innerHTML =
+      `${jobs.length} jobs found`;
+
+    jobs.forEach(job => {
+
+      const div = document.createElement('div');
+
+      div.className = 'job';
+
+      div.innerHTML = `
+        <div class="job-name">
+          ${job.name}
+        </div>
+
+        <div class="skills">
+          Skills: ${job.skills.join(', ')}
+        </div>
+
+        <div class="score">
+          Match: ${(job.score * 100).toFixed(1)}%
+        </div>
+      `;
+
+      document.getElementById('results').appendChild(div);
+
+    });
+
+  }
+  catch(err){
+
+    document.getElementById('status').innerHTML =
+      '❌ Flask server not running';
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
+
