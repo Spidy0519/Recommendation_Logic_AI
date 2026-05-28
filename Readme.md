@@ -7,7 +7,7 @@ An AI-powered Job Recommendation System that suggests relevant job roles based o
 # 🚀 Live Demo
 
 🌐 Frontend Live Website:
- [Demo Link](https://recommendlogicai.netlify.app/)
+ [Demo Link](https://spidy0519.github.io/Recommendation_Logic_AI/)
 
 ---
 
