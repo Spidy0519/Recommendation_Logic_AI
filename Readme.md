@@ -1,34 +1,41 @@
 # 🎯 AI Job Recommendation System
 
-An AI-based Job Recommendation System that suggests relevant job roles based on user-entered skills using **TF-IDF Vectorization** and **Cosine Similarity**.
+An AI-powered Job Recommendation System that suggests relevant job roles based on user-entered skills using **TF-IDF Vectorization** and **Cosine Similarity**.
 
 ---
 
-# 🚀 Features
+# 🚀 Live Demo
 
-✅ Live Skill-Based Job Recommendations
-✅ Real-Time Search Suggestions
+🌐 Frontend Live Website:
+ [Demo Link](https://recommendlogicai.netlify.app/)
+
+---
+
+# 📌 Features
+
+✅ Real-Time Job Recommendations
+✅ Live Skill Search
 ✅ AI-Based Skill Matching
-✅ TF-IDF Machine Learning Model
-✅ Cosine Similarity Recommendation Engine
-✅ Flask Backend API
-✅ Interactive HTML Frontend
-✅ Automatic Recommendation While Typing
+✅ TF-IDF Recommendation Engine
+✅ Cosine Similarity Matching
+✅ Flask REST API
+✅ Interactive Frontend UI
+✅ Automatic Suggestions While Typing
 
 ---
 
 # 🛠 Technologies Used
 
-| Technology          | Purpose            |
-| ------------------- | ------------------ |
-| Python              | Backend Logic      |
-| Flask               | API Server         |
-| Pandas              | CSV Data Handling  |
-| Scikit-learn        | Machine Learning   |
-| TF-IDF              | Text Vectorization |
-| Cosine Similarity   | Skill Matching     |
-| HTML/CSS/JavaScript | Frontend UI        |
-| Joblib              | Model Saving       |
+| Technology          | Purpose              |
+| ------------------- | -------------------- |
+| Python              | Backend Development  |
+| Flask               | API Server           |
+| Pandas              | Dataset Handling     |
+| Scikit-learn        | Machine Learning     |
+| TF-IDF              | Text Vectorization   |
+| Cosine Similarity   | Recommendation Logic |
+| HTML/CSS/JavaScript | Frontend             |
+| Joblib              | Model Storage        |
 
 ---
 
@@ -39,7 +46,6 @@ Recommendation_Logic_AI/
 │
 ├── raw_skills.csv
 ├── train_model.py
-├── recommend.py
 ├── app.py
 ├── index.html
 │
@@ -47,7 +53,9 @@ Recommendation_Logic_AI/
 ├── recommender.pkl
 ├── dataset.pkl
 │
-└── README.md
+├── requirements.txt
+├── README.md
+└── Procfile
 ```
 
 ---
@@ -61,7 +69,7 @@ Example:
 ```csv
 Skills,Job_Role
 python pandas sql,Data Analyst
-python tensorflow machinelearning,AI Engineer
+python tensorflow ml,AI Engineer
 html css javascript,Frontend Developer
 ```
 
@@ -69,23 +77,23 @@ html css javascript,Frontend Developer
 
 # ⚙️ Installation
 
-## 1️⃣ Clone Project
+## 1️⃣ Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone YOUR_GITHUB_REPO_LINK
 ```
 
 ---
 
-## 2️⃣ Install Required Libraries
+## 2️⃣ Install Dependencies
 
 ```bash
-pip install pandas scikit-learn flask flask-cors joblib
+pip install -r requirements.txt
 ```
 
 ---
 
-# 🧠 Model Training
+# 🧠 Train Model
 
 Run:
 
@@ -93,7 +101,7 @@ Run:
 python train_model.py
 ```
 
-This will create:
+Generated files:
 
 ```text
 vectorizer.pkl
@@ -103,48 +111,13 @@ dataset.pkl
 
 ---
 
-# 🔥 TF-IDF Explanation
-
-TF-IDF converts text skills into numerical vectors.
-
-Example:
-
-```text
-python machine learning
-```
-
-becomes:
-
-```text
-[0.32, 0.54, 0.11]
-```
-
-This allows AI models to compare skills mathematically.
-
----
-
-# 📐 Cosine Similarity
-
-Cosine Similarity calculates how similar user skills are to job skills.
-
-| Similarity Score | Meaning      |
-| ---------------- | ------------ |
-| 90%              | Strong Match |
-| 70%              | Good Match   |
-| 40%              | Medium Match |
-| 0%               | No Match     |
-
----
-
-# ▶️ Running Flask Backend
-
-Run:
+# ▶️ Run Backend
 
 ```bash
 python app.py
 ```
 
-Server starts at:
+Server runs on:
 
 ```text
 http://127.0.0.1:5000
@@ -152,7 +125,7 @@ http://127.0.0.1:5000
 
 ---
 
-# 🌐 Running Frontend
+# 🌐 Run Frontend
 
 Open:
 
@@ -164,16 +137,16 @@ in browser.
 
 ---
 
-# 💡 How It Works
+# 🔥 How It Works
 
 ```text
 User Types Skills
         ↓
-JavaScript Sends Request
+Frontend Sends Request
         ↓
-Flask Receives Skills
+Flask API Receives Skills
         ↓
-TF-IDF Converts Skills to Vector
+TF-IDF Converts Text to Vector
         ↓
 Cosine Similarity Calculates Match
         ↓
@@ -189,21 +162,21 @@ Frontend Displays Results
 ## User Input
 
 ```text
-python
+python machine learning
 ```
 
-## Recommended Jobs
+## Output
 
 ```text
 AI Engineer
-Python Developer
+Machine Learning Engineer
 Data Scientist
 Backend Developer
 ```
 
 ---
 
-# 🧪 API Endpoint
+# 📡 API Endpoint
 
 ## POST `/recommend`
 
@@ -233,27 +206,32 @@ Backend Developer
 
 ---
 
-# 📈 Future Improvements
+# 🚀 Deployment
 
-✅ Resume Upload
-✅ Voice Input
-✅ Tamil Language Support
-✅ Chatbot Integration
-✅ Deep Learning Recommendation Model
-✅ User Authentication
-✅ Job Description Matching
-✅ Deployment on Render/Netlify
+## Frontend Deployment
+
+Deployed using:
+
+* Netlify
+
+## Backend Deployment
+
+Deployed using:
+
+* Render
 
 ---
 
-# 🏆 Use Cases
+# 🔮 Future Improvements
 
-* Career Guidance
-* Skill Analysis
-* AI-Based Job Search
-* Resume Screening
-* Internship Recommendation
-* Student Career Platforms
+✅ Resume Upload
+✅ Voice Search
+✅ Tamil Language Support
+✅ User Login System
+✅ Chatbot Integration
+✅ Deep Learning Recommendation Engine
+✅ Database Integration
+✅ Mobile Responsive UI
 
 ---
 
